@@ -1,14 +1,20 @@
 const mongoose = require('mongoose');
-
+// {
+// "first_name": "Tam",
+// "last_name": "Harrow",
+// "email": "tam@hollywood.com",
+// "gender": "Male",
+// "salary": 125500.00
+// }
 const EmployeeSchema = new mongoose.Schema({
-  firstname: {
+  first_name: {
     type: String,
     required: true,
     trim: true,
     maxLength: 100,
     lowercase: true
   },
-  lastname: {
+  last_name: {
     type: String,
     required: true,
     trim: true,
