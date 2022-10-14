@@ -1,5 +1,5 @@
 const express = require('express');
-const employeeModel = require('../models/Employee');
+const userModel = require('../models/User');
 const app = express();
 
 // {"username": "p@p.com",
@@ -12,7 +12,9 @@ const app = express();
 // "jwt_token": "Optional implementation"
 // }
 
-//sing up
+
+
+//http://localhost:8081/api/user/signup
 app.post('/signup', async (req, res) => { 
     try {
       const new_user = await new userModel(req.body);
@@ -24,8 +26,8 @@ app.post('/signup', async (req, res) => {
   });
 
 
-//login 
-app.post('/login', async (req, res) => {
+//http://localhost:8081/api/user/login
+app.post('/login/:id', async (req, res) => {
     try {
       const user = await userModel.findOne(req.params.id)
       if (!user){
