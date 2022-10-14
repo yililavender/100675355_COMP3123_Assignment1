@@ -27,9 +27,9 @@ app.post('/signup', async (req, res) => {
 
 
 //http://localhost:8081/api/user/login
-app.post('/login/:id', async (req, res) => {
+app.post('/login/', async (req, res) => {
     try {
-      const user = await userModel.findOne(req.params.id)
+      const user = await userModel.findOne(req.body.username)
       if (!user){
         res.status(404).send("No User found")
       }
