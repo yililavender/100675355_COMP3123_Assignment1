@@ -26,10 +26,10 @@ app.post('/signup', async (req, res) => {
   });
 
 
-//http://localhost:8081/api/user/login
+//http://localhost:8081/api/user/login/
 app.post('/login/', async (req, res) => {
     try {
-      const user = await userModel.findOne(req.body.username)
+      const user = await userModel.findOne(req.body.user)
       if (!user){
         res.status(404).send("No User found")
       }
@@ -38,7 +38,5 @@ app.post('/login/', async (req, res) => {
       res.status(500).send(err)
     }
   })
-
-
 
 module.exports = app
